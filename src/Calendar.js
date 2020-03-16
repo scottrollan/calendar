@@ -1,7 +1,8 @@
+//npm (yarn) install date-fns
+
 import React from "react";
 import { 
     format, 
-    // getMonth, 
     addMonths, 
     subMonths, 
     startOfWeek,
@@ -12,29 +13,28 @@ import {
     isSameDay,
     isSameMonth,
  } from "date-fns";
-import "./App.css";
-// import { isSameMonth } from "date-fns/esm";
+// import "./App.css";
+import './Calendar.css'
 
 class Calendar extends React.Component {
   state = {
     today: format(new Date(), "MMMM yyyy"),
     currentMonth: new Date(),
-    // currentMonth: getMonth(new Date()),
     selectedDate: new Date(),
   };
 
   renderHeader() {
     return (
       <div className="header row flex-middle">
-        <div className="col col-start">
+        <div className="col colStart">
           <div className="icon" onClick={this.prevMonth}>
             chevron_left
           </div>
         </div>
-        <div className="col col-center">
+        <div className="col colCenter">
           <span>{format(this.state.currentMonth, 'MMMM yyyy')} </span>
         </div>
-        <div className="col col-end" onClick={this.nextMonth}>
+        <div className="col colEnd" onClick={this.nextMonth}>
           <div className="icon">chevron_right</div>
         </div>
       </div>
@@ -49,9 +49,9 @@ class Calendar extends React.Component {
 
       for(let i = 0; i < 7; i++) {
           days.push(
-              <div className="col col-center" key={i}>
+              <span className="col colCenter" key={i}>
                   {format(addDays(startDate, i), dateFormat)}
-              </div>
+              </span>
           )
       }
       return <div className="days row">{days}</div>
