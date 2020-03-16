@@ -26,13 +26,14 @@ class Calendar extends React.Component {
   renderHeader() {
     return (
       <div className="header row flex-middle">
-        <div className="col colStart">
-          <div className="icon" onClick={this.prevMonth}>
+        <div className="col colStart"  onClick={this.prevMonth}>
+          <div className="icon">
             chevron_left
           </div>
         </div>
-        <div className="col colCenter">
-          <span>{format(this.state.currentMonth, 'MMMM yyyy')} </span>
+        <div className="col colCenter stacked">
+            <span>{format(this.state.currentMonth, 'MMMM yyyy')} </span>
+            <button onClick={this.goToToday}>Go To Today</button>
         </div>
         <div className="col colEnd" onClick={this.nextMonth}>
           <div className="icon">chevron_right</div>
@@ -103,6 +104,13 @@ class Calendar extends React.Component {
         selectedDate: day
       })
   };
+  goToToday = () => {
+      this.setState({
+          currentMonth: new Date(),
+          selectedDate: new Date()
+      })
+      this.renderCells()
+  }
 
   nextMonth = () => {
     this.setState({

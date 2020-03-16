@@ -14,7 +14,6 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -94,26 +93,37 @@ main {
 }
 
 .col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
+  text-align: center;
+  align-items: center;
 }
-
 .colStart {
-  justify-content: flex-start;
-  text-align: left;
+  box-sizing: border-box;
+  text-align: center;
+  justify-content: center;
+}
+.colStart:hover {
+  background: #F4FAFF;
+  border-radius: 1em;
 }
 
 .colCenter {
-  justify-content: center;
+  /* justify-content: center; */
   text-align: center;
 }
 
 .colEnd {
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: center;
+  text-align: center;
 }
-
+.colEnd:hover {
+  background: #F4FAFF;
+}
 
 /* Calendar */
 
@@ -150,6 +160,20 @@ main {
 
 .calendar .header .icon:last-of-type {
   margin-right: 1em;
+}
+
+button {
+  color: var(--text-color);
+  background: #F4FAFF;
+  font-size: .5em;
+  padding: .5em;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: .5em;
+}
+
+button:hover {
+  background: rgba(29, 146, 254, .4);
 }
 
 .calendar .days {
