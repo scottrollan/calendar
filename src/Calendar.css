@@ -2,6 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url('https://fonts.googleapis.com/css?family=Gotu&display=swap');
 
 .icon {
   font-family: 'Material Icons', serif;
@@ -28,7 +29,7 @@
   --text-color: #777;
   --text-color-light: #ccc;
   --border-color: #eee;
-  --bg-color: #f9f9f9;
+  --bg-color: #777;
   --neutral-color: #fff;
 }
 
@@ -40,13 +41,14 @@
 }
 
 body {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Gotu', 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-size: 1em;
     font-weight: 300;
     line-height: 1.5;
     color: var(--text-color);
     background: var(--bg-color);
     position: relative;
+    padding: 5% 15%;
 }
 
 header {
@@ -196,7 +198,7 @@ button:hover {
 }
 
 .calendar .body .cell:hover {
-  background: var(--bg-color);
+  background: var(--border-color);
   transition: 0.5s ease-out;
 }
 
@@ -246,12 +248,23 @@ button:hover {
 }
 
 .calendar .body .cell:hover .bg, .calendar .body .selected .bg  {
-  opacity: 0.05;
+  opacity: 0.1;
   transition: .5s ease-in;
 }
+
+.calendar .body .cell:hover .number {
+  visibility: hidden;
+}
+
 
 .calendar .body .col {
   flex-grow: 0;
   flex-basis: calc(100%/7);
   width: calc(100%/7);
+}
+
+@media screen and (max-width: 960px) {
+  body {
+    padding: 5%;
+  }
 }

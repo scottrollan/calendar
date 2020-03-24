@@ -13,7 +13,6 @@ import {
     isSameDay,
     isSameMonth,
  } from "date-fns";
-// import "./App.css";
 import './Calendar.css'
 
 class Calendar extends React.Component {
